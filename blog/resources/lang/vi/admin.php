@@ -1,6 +1,7 @@
 <?php
 return [
-    'PageName'          => 'Quản trị Web',
+    'NameAdmin'         => 'Quản trị Web',
+    'MenuMain'          => 'Danh sách quản trị',
     'Dashboard'         => 'Bảng điều khiển',
     'PageAdmin'         => 'Trang quản trị',
     'PageView'          => 'Xem Website',

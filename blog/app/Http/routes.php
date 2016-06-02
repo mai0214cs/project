@@ -1,5 +1,6 @@
 <?php
 Route::group(['prefix'=>'admin'],function(){
+    Route::get('/','AdminController@index');
     Route::group(['prefix'=>'news'],function(){
         Route::resource('category','News\NewsCategoryController');
         Route::resource('list','News\NewsListController');
@@ -16,6 +17,7 @@ Route::group(['prefix'=>'admin'],function(){
         Route::resource('order','Order\OrderController');
         Route::resource('payment','Order\PaymentController');
         Route::resource('shipment','Order\ShipmentController');
+        Route::resource('promotion','Order\PromotionController');
     });
 });
 
