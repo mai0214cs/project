@@ -1,0 +1,22 @@
+<?php
+return [
+    'fullname'      => 'Họ và tên',
+    'avatar'        => 'Ảnh đại diện',
+    'description'   => 'Mô tả',
+    'yahoo'         => 'Yahoo',
+    'skype'         => 'Skype',
+    'facebook'      => 'Facebook',
+    'address'       => 'Địa chỉ',
+    'website'       => 'Website',
+    'information'   => 'Thông tin',
+    'orderby'       => 'Thứ tự',
+    'status'        => 'Trạng thái',
+    'add'           => 'Thêm người hỗ trợ mới',
+    'edit'          => 'Sửa người hỗ trợ mới',
+    'addsuccess'    => 'Thêm người hỗ trợ thành công',
+    'adderror'      => 'Thêm người hỗ trợ thất bại',
+    'editsuccess'   => 'Sửa người hỗ trợ thành công',
+    'editerror'     => 'Sửa người hỗ trợ thất bại',
+    'deletesuccess' => 'Xóa người hỗ trợ thành công',
+    'deleteerror'   => 'Xóa người hỗ trợ thất bại',
+];
