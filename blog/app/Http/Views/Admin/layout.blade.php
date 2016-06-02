@@ -29,7 +29,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/">{{trans('layoutadmin.pageadmin')}}</a>
+                    <a class="navbar-brand" href="/">{{trans('admin.pageadmin')}}</a>
                 </div>
                 <!-- /.navbar-header -->
 
@@ -40,12 +40,10 @@
                             <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                            </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                            </li>
+                            <li><a href="#"><i class="fa fa-user fa-fw"></i> {{trans('admin.UserProfile')}}</a></li>
+                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> {{trans('admin.UserSettings')}}</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> {{trans('admin.Logout')}}</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -69,31 +67,37 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-dashboard fa-fw"></i> {{trans('layoutadmin.dashboard')}}</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> {{trans('layoutadmin.product')}}<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-dashboard fa-fw"></i> {{trans('admin.Dashboard')}}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li><a href="{{route('admin.product.list.index')}}">{{trans('layoutadmin.productlist')}}</a></li>
-                                    <li><a href="{{route('admin.product.category.index')}}">{{trans('layoutadmin.productcate')}}</a></li>
+                                    <li><a href="">{{trans('admin.PageAdmin')}}</a></li>
+                                    <li><a href="/">{{trans('admin.PageView')}}</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> {{trans('layoutadmin.news')}}<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> {{trans('admin.Product')}}<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li><a href="{{route('admin.news.list.index')}}">{{trans('layoutadmin.newslist')}}</a></li>
-                                    <li><a href="{{route('admin.news.category.index')}}">{{trans('layoutadmin.newscate')}}</a></li>
+                                    <li><a href="{{route('admin.product.list.index')}}">{{trans('admin.ProductList')}}</a></li>
+                                    <li><a href="{{route('admin.product.category.index')}}">{{trans('admin.ProductCategory')}}</a></li>
+                                    <li><a href="{{route('admin.product.attribute.index')}}">{{trans('admin.ProductAttribute')}}</a></li>
                                 </ul>
                             </li>
-                            <li><a href="{{route('admin.pageinfo.index')}}"><i class="fa fa-users fa-fw"></i> {{trans('layoutadmin.pageinfo')}}</a></li>
-                            <li><a href="{{route('admin.menu.index')}}"><i class="fa fa-users fa-fw"></i> {{trans('layoutadmin.menu')}}</a></li>
-                            <li><a href="{{route('admin.contenthtml.index')}}"><i class="fa fa-users fa-fw"></i> {{trans('layoutadmin.contenthtml')}}</a></li>
-                            <li><a href="{{route('admin.slider.index')}}"><i class="fa fa-users fa-fw"></i> {{trans('layoutadmin.slider')}}</a></li>
-                            <li><a href="{{route('admin.gallery.index')}}"><i class="fa fa-users fa-fw"></i> {{trans('layoutadmin.gallery')}}</a></li>
-                            <li><a href="{{route('admin.support.index')}}"><i class="fa fa-users fa-fw"></i> {{trans('layoutadmin.support')}}</a></li>
                             <li>
-                                <a href="#"><i class="fa fa-users fa-fw"></i> {{trans('layoutadmin.useradmin')}}</a>
-                                <!-- /.nav-second-level -->
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> {{trans('admin.Order')}}<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="{{route('admin.order.list.index')}}">{{trans('admin.OrderCustomer')}}</a></li>
+                                    <li><a href="{{route('admin.order.category.index')}}">{{trans('admin.OrderInvoice')}}</a></li>
+                                    <li><a href="{{route('admin.order.attribute.index')}}">{{trans('admin.OrderOrder')}}</a></li>
+                                    <li><a href="{{route('admin.order.list.index')}}">{{trans('admin.OrderPayment')}}</a></li>
+                                    <li><a href="{{route('admin.order.category.index')}}">{{trans('admin.OrderShipment')}}</a></li>
+                                    <li><a href="{{route('admin.order.attribute.index')}}">{{trans('admin.OrderPromotion')}}</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> {{trans('admin.News')}}<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li><a href="{{route('admin.news.list.index')}}">{{trans('admin.NewsList')}}</a></li>
+                                    <li><a href="{{route('admin.news.category.index')}}">{{trans('admin.NewsCategory')}}</a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -124,15 +128,8 @@
         <!-- /#wrapper -->
 
         <!-- jQuery -->
-
-
-        <!-- Bootstrap Core JavaScript -->
         <script src="/src/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-        <!-- Metis Menu Plugin JavaScript -->
         <script src="/src/bower_components/metisMenu/dist/metisMenu.min.js"></script>
-
-        <!-- Custom Theme JavaScript -->
         <script src="/src/dist/js/sb-admin-2.js"></script>
         @yield('footer')
     </body>
