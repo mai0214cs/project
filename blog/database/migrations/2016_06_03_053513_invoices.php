@@ -30,6 +30,6 @@ class Invoices extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('invoices');
     }
 }

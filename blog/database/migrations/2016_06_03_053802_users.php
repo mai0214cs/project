@@ -12,7 +12,7 @@ class Users extends Migration
      */
     public function up()
     {
-        Schema::create('shipments', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
             $table->date('created_at');
@@ -31,6 +31,6 @@ class Users extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('users');
     }
 }

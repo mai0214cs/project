@@ -38,6 +38,6 @@ class Page extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('page');
     }
 }

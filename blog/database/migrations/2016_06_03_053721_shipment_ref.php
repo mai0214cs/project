@@ -12,7 +12,7 @@ class ShipmentRef extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('shipment_ref', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -26,6 +26,6 @@ class ShipmentRef extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('shipment_ref');
     }
 }

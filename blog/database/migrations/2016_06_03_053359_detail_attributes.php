@@ -27,6 +27,6 @@ class DetailAttributes extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('detail_attribute');
     }
 }

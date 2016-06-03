@@ -29,6 +29,6 @@ class GroupAttributes extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('group_attributes');
     }
 }

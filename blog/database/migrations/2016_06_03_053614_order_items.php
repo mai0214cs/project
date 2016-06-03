@@ -31,6 +31,6 @@ class OrderItems extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('order_item');
     }
 }

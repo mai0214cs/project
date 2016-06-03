@@ -26,6 +26,6 @@ class OrderItemStatusRef extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('order_item_status_ref');
     }
 }

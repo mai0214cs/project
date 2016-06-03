@@ -32,6 +32,6 @@ class ListAttributes extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('list_attributes');
     }
 }

@@ -26,6 +26,6 @@ class InvoiceStatusRef extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('invoice_status_ref');
     }
 }

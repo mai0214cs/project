@@ -28,6 +28,6 @@ class FieldData extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('field_data');
     }
 }
