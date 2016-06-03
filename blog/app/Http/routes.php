@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'],function(){
     Route::get('/','AdminController@index');
     Route::group(['prefix'=>'news'],function(){
         Route::resource('category','News\NewsCategoryController');
@@ -23,6 +23,8 @@ Route::group(['prefix'=>'admin'],function(){
 
 
 Route::get('/', function () {
-    
     return view('welcome');
 });
+
+Route::auth();
+Route::get('/home', 'HomeController@index');

@@ -17,6 +17,8 @@ class ComposerStaticInit632b2470426973b897d9c68972a706df
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '578ad82a4b44efd25585866edbfe414f' => __DIR__ . '/../..' . '/App/Http/Helper/common.php',
+        '156a773563ac880689445708f4fc7dd2' => __DIR__ . '/../..' . '/App/Http/Helper/function.php',
+        'a00ad38b87cdd0d0e653a703c0e52553' => __DIR__ . '/../..' . '/App/Http/Libraries/LoadMenu.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -256,10 +258,14 @@ class ComposerStaticInit632b2470426973b897d9c68972a706df
     public static $classMap = array (
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
+        'Customers' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053343_customers.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
+        'DetailAttributes' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053359_detail_attributes.php',
+        'FieldData' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053412_field_data.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'GroupAttributes' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053433_group_attributes.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -329,6 +335,13 @@ class ComposerStaticInit632b2470426973b897d9c68972a706df
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'IlluminateQueueClosure' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
+        'InvoiceStatusRef' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053457_invoice_status_ref.php',
+        'Invoices' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053513_invoices.php',
+        'ListAttributes' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053527_list_attributes.php',
+        'OrderItemStatusRef' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053548_order_item_status_ref.php',
+        'OrderItems' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053614_order_items.php',
+        'OrderStatusRef' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053630_order_status_ref.php',
+        'Orders' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053640_orders.php',
         'PHPUnit_Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit_Extensions_GroupTestSuite' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/GroupTestSuite.php',
         'PHPUnit_Extensions_PhptTestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/Extensions/PhptTestCase.php',
@@ -724,6 +737,9 @@ class ComposerStaticInit632b2470426973b897d9c68972a706df
         'PHP_Token_XOR_EQUAL' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_YIELD_FROM' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'Page' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053646_page.php',
+        'Payments' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053655_payments.php',
+        'Products' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053703_products.php',
         'SebastianBergmann\\Comparator\\ArrayComparator' => __DIR__ . '/..' . '/sebastian/comparator/src/ArrayComparator.php',
         'SebastianBergmann\\Comparator\\Comparator' => __DIR__ . '/..' . '/sebastian/comparator/src/Comparator.php',
         'SebastianBergmann\\Comparator\\ComparisonFailure' => __DIR__ . '/..' . '/sebastian/comparator/src/ComparisonFailure.php',
@@ -760,8 +776,11 @@ class ComposerStaticInit632b2470426973b897d9c68972a706df
         'SebastianBergmann\\RecursionContext\\Exception' => __DIR__ . '/..' . '/sebastian/recursion-context/src/Exception.php',
         'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => __DIR__ . '/..' . '/sebastian/recursion-context/src/InvalidArgumentException.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
+        'ShipmentRef' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053721_shipment_ref.php',
+        'Shipments' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053753_shipments.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'Users' => __DIR__ . '/../..' . '/database/migrations/2016_06_03_053802_users.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

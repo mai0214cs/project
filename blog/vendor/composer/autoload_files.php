@@ -16,4 +16,6 @@ return array(
     'f0906e6318348a765ffb6eb24e0d0938' => $vendorDir . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
     '58571171fd5812e6e447dce228f52f4d' => $vendorDir . '/laravel/framework/src/Illuminate/Support/helpers.php',
     '578ad82a4b44efd25585866edbfe414f' => $baseDir . '/App/Http/Helper/common.php',
+    '156a773563ac880689445708f4fc7dd2' => $baseDir . '/App/Http/Helper/function.php',
+    'a00ad38b87cdd0d0e653a703c0e52553' => $baseDir . '/App/Http/Libraries/LoadMenu.php',
 );

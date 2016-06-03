@@ -3,38 +3,30 @@
 namespace App\Http\Controllers\Product;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Models\PageModel;
+use App\Http\Libraries\LoadMenu;
+
 
 class ProductCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $menu;
+    
+    function __construct() {
+        $this->menu = new LoadMenu();
+    }
+
     public function index()
     {
-        //
+        return view('Admin/Product/CateList')->with(['menu' => $this->menu->ListMenu(PageModel::where('type','product_category')->get(), 0)]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        $category = PageModel::where('type','product_category')->get()->toArray();
+        return view('Admin/Product/CateAdd')->with(['menu' => $this->menu->ListMenu($category, 0)]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         //

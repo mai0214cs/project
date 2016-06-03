@@ -23,7 +23,9 @@
             "App\\": "app/"
         },
         "files": [
-            "App/Http/Helper/common.php"
+            "App/Http/Helper/common.php",
+            "App/Http/Helper/function.php",
+            "App/Http/Libraries/LoadMenu.php"
         ]
     },
     "autoload-dev": {
