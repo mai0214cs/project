@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Product;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Models\Group_attributesModel;
 
 class ProductAttributeController extends Controller
 {
@@ -16,7 +16,16 @@ class ProductAttributeController extends Controller
      */
     public function index()
     {
-        //
+        
+        
+        
+        
+        
+        
+        
+        
+        $data['cate'] = Group_attributesModel::orderBy('id','asc')->get();
+        //return view('');
     }
 
     /**

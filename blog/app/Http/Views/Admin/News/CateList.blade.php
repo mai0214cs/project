@@ -1,10 +1,10 @@
 @extends('Admin.layout')
 @section('header')
-{{trans('admin.ProductCategory')}}
+{{trans('admin.NewsCategory')}}
 @endsection
 @section('content')
 <div class="col-lg-12">
-    <h1 class="page-header">{{trans('admin.ProductCategory')}}</h1>
+    <h1 class="page-header">{{trans('admin.NewsCategory')}}</h1>
 </div>
 <div class="clearfix"></div>
 @if(count($errors->all())>0)
@@ -30,7 +30,7 @@
                 <td>{{$item['alias']}}</td>
                 <td><input type="checkbox" onclick="CheckStatus({{$item['id']}})" {{$item['status']=='Yes'?'checked="checked"':''}} /></td>
                 <td style="width: 120px;">
-                    <a class="label label-primary" href="{{route('admin.product.category.edit',$item['id'])}}"><?= trans('admin.buttonEdit') ?></a>
+                    <a class="label label-primary" href="{{route('admin.news.category.edit',$item['id'])}}"><?= trans('admin.buttonEdit') ?></a>
                     <a class="label label-danger" onclick="SelectCategoryDelete({{$item['id']}})" data-toggle="modal" data-target="#myModal"><?= trans('admin.buttonDelete') ?></a>
                 </td>
             </tr>
@@ -38,7 +38,7 @@
         </tbody>
     </table>
 </div>
-<a class="label label-primary" href="{{route('admin.product.category.create')}}"><?= trans('admin.buttonAdd') ?></a>
+<a class="label label-primary" href="{{route('admin.news.category.create')}}"><?= trans('admin.buttonAdd') ?></a>
 
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -47,7 +47,7 @@
         <div class="modal-content" id="SearchForm">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">{{trans('admin.convertCategoryProduct')}}</h4>
+                <h4 class="modal-title">{{trans('admin.convertCategoryNews')}}</h4>
             </div>
             <div class="modal-body">
                 <form method="POST" class="form-horizontal" role="form">
@@ -56,7 +56,7 @@
                         <div class="col-sm-9">
                             <input type="hidden" name="id_category" value="" />
                             <select class="form-control" name="selectParent">
-                                <option value="0">Không lựa chọn</option>
+                                <option value="0">{{trans('admin.noselect')}}</option>
                                 @foreach($menu as $m)
                                 <option {{$item['parent_id']==$m['id']?'selected="selected"':''}} value="{{$m['id']}}">{{$m['title']}}</option>
                                 @endforeach
@@ -82,12 +82,12 @@
         var obj = new Object();
         obj.category_id = $('[name="id_category"]').val();
         obj.selectParent = $('[name="selectParent"]').val();
-        AjaxData('/admin/product/category/delete/' + obj.category_id + '/' + obj.selectParent, {}, 'ResultDelete');
+        AjaxData('/admin/news/category/delete/' + obj.category_id + '/' + obj.selectParent, {}, 'ResultDelete');
     }
     function ResultDelete(rs){
         location.reload();
     }
-    function CheckStatus(id){ AjaxData('/admin/product/category/status/' + id, {}, 'UpdateStatus'); }
+    function CheckStatus(id){ AjaxData('/admin/news/category/status/' + id, {}, 'UpdateStatus'); }
     function UpdateStatus(rs){
     }
 </script>

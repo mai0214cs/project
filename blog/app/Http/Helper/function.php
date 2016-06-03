@@ -46,7 +46,7 @@ function information($status, $message) {
 }
 
 function imageReset($url) {
-    return is_file(trim($url, '/')) ? $url : '/image.png';
+    return is_file(trim($url, '/')) ? $url : '/lib/image.png';
 }
 
 function GetPagination($current, $total, $limitcount) {

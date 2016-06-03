@@ -27,10 +27,10 @@ class LoadMenu {
 
     public function ListMenu($data,$parent_id,$string = ''){
         foreach ($data as $key => $item) {
-            if($item['parent_id'] == $parent_id){
+            if($item['id_page'] == $parent_id){
                 unset($data[$key]);
                 $this->datanew[$this->dem] = $item;
-                $this->datanew[$this->dem]['name'] = $string.$item['name'];
+                $this->datanew[$this->dem]['title'] = $string.$item['title'];
                 $this->dem++;
                 if($data){$this->ListMenu($data, $item['id'],$string.'-----');}
             }
@@ -39,11 +39,11 @@ class LoadMenu {
     }
     public function ListMenuEdit($data,$id_capchads,$current,$string = ''){        
         foreach ($data as $key => $item) {
-            if($item['parent_id'] == $id_capchads){
+            if($item['id_page'] == $id_capchads){
                 unset($data[$key]);
                 if($item['id']!=$current){
                     $this->datanew[$this->dem] = $item;
-                    $this->datanew[$this->dem]['name'] = $string.$item['name'];
+                    $this->datanew[$this->dem]['title'] = $string.$item['title'];
                     $this->dem++;
                     if($data){$this->ListMenuEdit($data, $item['id'],$current,$string.'-----');}
                 }
@@ -53,7 +53,7 @@ class LoadMenu {
     }
     public function AddMenuList($data,$parent_id){
         foreach ($data as $key => $item) {
-            if($item['parent_id'] == $parent_id){
+            if($item['id_page'] == $parent_id){
                 unset($data[$key]);
                 $this->datanew[] = $item['id'];
                 if($data){$this->AddMenuList($data, $item['id']);}
@@ -63,7 +63,7 @@ class LoadMenu {
     }
     public function EditMenuList($data,$parent_id,$current){        
         foreach ($data as $key => $item) {
-            if($item['parent_id'] == $parent_id){
+            if($item['id_page'] == $parent_id){
                 unset($data[$key]);
                 if($item['id']!=$current){
                     $this->datanew[] = $item['id'];

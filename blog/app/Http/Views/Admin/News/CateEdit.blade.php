@@ -1,10 +1,10 @@
 @extends('Admin.layout')
 @section('header')
-{{trans('admin.PageEditCategoryProduct')}}
+{{trans('admin.PageEditCategoryNews')}}
 @endsection
 @section('content')
 <div class="col-lg-12">
-    <h1 class="page-header">{{trans('admin.PageEditCategoryProduct')}}</h1>
+    <h1 class="page-header">{{trans('admin.PageEditCategoryNews')}}</h1>
 </div>
 <div class="clearfix"></div>
 @if(count($errors->all())>0)
@@ -14,7 +14,7 @@
 @endif
 <!-- /.col-lg-12 -->
 <div style="padding-bottom:120px">
-    <form action="{{route('admin.product.category.update',$item['id'])}}" method="POST" class="form-horizontal" role="form">
+    <form action="{{route('admin.news.category.update',$item['id'])}}" method="POST" class="form-horizontal" role="form">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="_method" value="PUT" />
         <input type="hidden" name="id" value="{{$item['id']}}" />
@@ -96,7 +96,7 @@
         </div>
         <div class="clearfix"></div>
         <button type="submit" class="btn btn-default"><?= trans('admin.buttonEdit') ?></button>
-        <a href="{{route('admin.product.category.index')}}" class="btn btn-default"><?= trans('admin.buttonReset') ?></a>
+        <a href="{{route('admin.news.category.index')}}" class="btn btn-default"><?= trans('admin.buttonReset') ?></a>
         <form>
             </div>
             @endsection

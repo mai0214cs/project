@@ -28,7 +28,8 @@ return [
     // List Page Item
     'PageAddCategoryProduct'    => 'Thêm danh mục sản phẩm',
     'PageEditCategoryProduct'   => 'Sửa danh mục sản phẩm',
-    
+    'PageAddCategoryNews'       => 'Thêm danh mục tin tức',
+    'PageEditCategoryNews'      => 'Sửa danh mục tin tức',
     
     
     
@@ -61,8 +62,38 @@ return [
     'SEO_keyword'       => 'SEO Từ khóa',
     'avatar'            => 'Ảnh đại diện',
     'parent'            => 'Danh mục cha',
-    'order'             => 'TT',
-    'order'             => 'TT',
+    'order'             => 'Thứ tự',
     
+    'price'             => 'Giá bán',
+    'pricepromotion'    => 'Giá khuyến mại',
+    'status_inventory'  => 'Kho hàng',
+    'new'               => 'Mới',
+    'feature'           => 'Nổi bật',
+    'sales'             =>'Bán chạy',
+    
+    
+    
+    
+    'noexistsCategoryProduct'       => 'Danh mục sản phẩm không tồn tại',
+    'addCategoryProductSuccess'     => 'Thêm danh mục sản phẩm thành công',
+    'addCategoryProductError'       => 'Thêm danh mục sản phẩm thất bại',
+    'editCategoryProductSuccess'    => 'Sửa danh mục sản phẩm thành công',
+    'editCategoryProductError'      => 'Sửa danh mục sản phẩm thất bại',
+    'deleteCategoryProductSuccess'  => 'Xóa danh mục sản phẩm thành công',
+    'deleteCategoryProductError'    => 'Xóa danh mục sản phẩm thất bại',
+    'statusCategoryProductSuccess'  => 'Cập nhật trạng thái danh mục sản phẩm thành công',
+    'statusCategoryProductError'    => 'Cập nhật trạng thái danh mục sản phẩm thất bại',
+    'convertCategoryProduct'        => 'Chuyển sản phẩm sang danh mục khác',
+    
+    'noexistsCategoryNews'       => 'Danh mục tin tức không tồn tại',
+    'addCategoryNewsSuccess'     => 'Thêm danh mục tin tức thành công',
+    'addCategoryNewsError'       => 'Thêm danh mục tin tức thất bại',
+    'editCategoryNewsSuccess'    => 'Sửa danh mục tin tức thành công',
+    'editCategoryNewsError'      => 'Sửa danh mục tin tức thất bại',
+    'deleteCategoryNewsSuccess'  => 'Xóa danh mục tin tức thành công',
+    'deleteCategoryNewsError'    => 'Xóa danh mục tin tức thất bại',
+    'statusCategoryNewsSuccess'  => 'Cập nhật trạng thái danh mục tin tức thành công',
+    'statusCategoryNewsError'    => 'Cập nhật trạng thái danh mục tin tức thất bại',
+    'convertCategoryNews'        => 'Chuyển tin tức sang danh mục khác',
     
 ];

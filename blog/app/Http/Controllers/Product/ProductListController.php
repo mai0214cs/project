@@ -4,19 +4,24 @@ namespace App\Http\Controllers\Product;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Http\Models\PageModel;
+use App\Http\Libraries\LoadMenu;
 
 class ProductListController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $menu;
+    function __construct() {
+        $this->menu = new LoadMenu();
+    }
+
     public function index()
     {
-        //
+        $where = ['type'=>'product_list'];
+        $data['list'] = PageModel::where($where)->orderBy('order','asc')->orderBy('id','desc')->paginate(15);
+        $data['cate'] = $this->menu->ListMenu(PageModel::where('type','product_category')->get()->toArray(), 0);
+        //$data['page'] = $data['list']->appends($search)->links();
+        return view('Admin.Product.ListList')->with($data);
     }
 
     /**

@@ -1,10 +1,10 @@
 @extends('Admin.layout')
 @section('header')
-{{trans('admin.ProductList')}}
+{{trans('layoutadmin.newslist')}}
 @endsection
 @section('content')
 <div class="col-lg-12">
-    <h1 class="page-header">{{trans('admin.ProductList')}}</h1>
+    <h1 class="page-header">{{trans('layoutadmin.newslist')}}</h1>
     <div id="Pagination">
         <div id="CountPage" style="float: left">
             {!!GetPageCount()!!}
@@ -24,40 +24,38 @@
     <table class="table table-hover table-striped" id="GridData">
         <thead>
             <tr>
-                <th></th>
-                <th>{{trans('admin.name')}}</th>
-                <th>{{trans('admin.avatar')}}</th>
-                <th>{{trans('admin.price')}}</th>
-                <th>{{trans('admin.pricepromotion')}}</th>
-                <th>{{trans('admin.parent')}}</th>
-                <th>{{trans('admin.parent')}}</th>
+                <th>{{trans('news.listname')}}</th>
+                <th>{{trans('news.listavatar')}}</th>
+                <th>{{trans('news.listparent')}}</th>
                 <th>{{trans('admin.alias')}}</th>
-                <th>{{trans('admin.new')}}</th>
-                <th>{{trans('admin.sales')}}</th>
-                <th>{{trans('admin.feature')}}</th>
-                <th>{{trans('admin.status')}}</th>
-                <th>{{trans('admin.status_inventory')}}</th>
+                <th>{{trans('news.new')}}</th>
+                <th>{{trans('news.hot')}}</th>
+                <th>{{trans('news.feature')}}</th>
+                <th>{{trans('news.DateAdd')}}</th>
+                <th>{{trans('news.DateEdit')}}</th>
+                <th>{{trans('news.View')}}</th>
+                <th>{{trans('news.liststatus')}}</th>
                 <th>{{trans('admin.action')}}</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($list as $item)
         <template id="TempGridData"><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></template>
+        @foreach($list as $item)
         <tr>
-            <td></td>
-            <td>{{$item->title}}</td>
-            <td><img src="{{imageReset($item->avatar)}}" alt="{{$item->name}}" class="imageAvatar" /></td>
-            <td>{{$item->price_sales}}</td>
-            <td>{{isset($cate[$item->id_page])?$cate[$item->id_page]:''}}</td>
-            <td>{{$item->alias}}</td>
+            <td>{{$item['name']}}</td>
+            <td><img src="{{imageReset($item['avatar'])}}" alt="{{$item['name']}}" class="imageAvatar" /></td>
+            <td>{{isset($cate[$item['category_id']])?$cate[$item['category_id']]:''}}</td>
+            <td>{{$item['alias']}}</td>
             <td><input type="checkbox" onclick="CheckStatus(0, {{$item['id']}})" {{$item['new']=='Y'?'checked="checked"':''}}  /></td>
             <td><input type="checkbox" onclick="CheckStatus(1, {{$item['id']}})" {{$item['hot']=='Y'?'checked="checked"':''}}  /></td>
             <td><input type="checkbox" onclick="CheckStatus(2, {{$item['id']}})" {{$item['feature']=='Y'?'checked="checked"':''}} /></td>
+            <td>{{$item['created_at']}}</td>
+            <td>{{$item['updated_at']}}</td>
             <td>{{$item['viewcount']}}</td>
             <td><input type="checkbox" onclick="CheckStatus(3, {{$item['id']}})" {{$item['status']=='Y'?'checked="checked"':''}} /></td>
             <td>
-                <a class="label label-primary" href="{{route('admin.product.list.edit',$item['id'])}}"><?= trans('admin.buttonEdit') ?></a>
-                <a class="label label-danger" href="/admin/product/list/delete/{{$item['id']}}"><?= trans('admin.buttonDelete') ?></a>
+                <a class="label label-primary" href="{{route('admin.news.list.edit',$item['id'])}}"><?= trans('admin.buttonEdit') ?></a>&nbsp;
+                <a class="label label-danger" href="/admin/news/list/delete/{{$item['id']}}"><?= trans('admin.buttonDelete') ?></a>
             </td>
         </tr>
         @endforeach
@@ -72,7 +70,7 @@
         <div class="modal-content" id="SearchForm">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Tìm kiếm sản phẩm</h4>
+                <h4 class="modal-title">Tìm kiếm tin tức</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
@@ -95,15 +93,7 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3">Giá bán</label>
-                        <div class="col-sm-9">
-                            <div class="input-group" style="width:100%;">
-                                <input style="width:50%;" type="number" name="pricestart" class="form-control" aria-label="...">
-                                <input style="width:50%;" type="number" name="priceend" class="form-control" aria-label="...">
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="clearfix"></div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">Ngày đăng</label>
@@ -112,18 +102,6 @@
                                 <input style="width:50%;" type="date" name="datestart" class="form-control" aria-label="...">
                                 <input style="width:50%;" type="date" name="dateend" class="form-control" aria-label="...">
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3">Tình trạng</label>
-                        <div class="col-sm-9">
-                            <select class="form-control" name="sAction">
-                                <option value="-1">---</option>
-                                <option value="0">Sản phẩm mới</option>
-                                <option value="1">Sản phẩm khuyến mại</option>
-                                <option value="2">Sản phẩm nổi bật</option>
-                                <option value="3">Sản phẩm bán chạy</option>
-                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -139,7 +117,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="SearchProduct()" class="btn btn-default">Xác nhận</button>
+                <button type="button" onclick="SearchNews()" class="btn btn-default">Xác nhận</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -150,8 +128,7 @@
 
 
 
-
-<a class="label label-primary" href="{{route('admin.product.list.create')}}"><?= trans('admin.buttonAdd') ?></a>
+<a class="label label-primary" href="{{route('admin.news.list.create')}}"><?= trans('admin.buttonAdd') ?></a>
 @endsection
 @section('footer')
 <style>
@@ -163,19 +140,16 @@
 </style>
 <script>
     page = 1;
-    function SearchProduct(){
+    function SearchNews(){
     var pt = $('#SearchForm'), data = new Object();
     data.name = pt.find('[name="sName"]').val();
     data.category_id = pt.find('[name="sCate"]').val();
-    data.price0 = pt.find('[name="pricestart"]').val();
-    data.price1 = pt.find('[name="priceend"]').val();
     data.date0 = pt.find('[name="datestart"]').val();
     data.date1 = pt.find('[name="dateend"]').val();
-    data.action = pt.find('[name="sAction"]').val();
     data.status = pt.find('[name="sStatus"]').val();
     data.count = $('#CountPage select').val();
     data.pageselect = page;
-    AjaxData('/admin/product/search', data, 'UpdateSearch');
+    AjaxData('/admin/news/search', data, 'UpdateSearch');
     }
 
     function UpdateSearch(data){
@@ -198,17 +172,16 @@
     cells[8].textContent = cat.updated_at;
     cells[9].textContent = cat.viewcount;
     cells[10].innerHTML = '<td><input type="checkbox" onclick="CheckStatus(1, ' + cat.id + ')" ' + (cat.status == 'Y'?'checked="checked"':'') + ' /></td>';
-    cells[11].innerHTML = '<a class="label label-primary" href="/admin/product/list/' + cat.id + '/edit"><?= trans('admin.buttonEdit') ?></a> <a class="label label-danger" href="/admin/product/list/delete/' + cat.id + '"><?= trans('admin.buttonDelete') ?></a>';
+    cells[11].innerHTML = '<a class="label label-primary" href="/admin/news/list/' + cat.id + '/edit"><?= trans('admin.buttonEdit') ?></a> <a class="label label-danger" href="/admin/product/list/delete/' + cat.id + '"><?= trans('admin.buttonDelete') ?></a>';
     template.parentNode.appendChild(clone);
     }
     $("#myModal").modal("hide");
     }
-    function SelectPageShow(pageid){ page = pageid; SearchProduct(); }
-    function GetPageCount(){ SearchProduct(); }
-    function CheckStatus(type, id){ AjaxData('/admin/product/list/status/' + type + '/' + id, {}, 'UpdateStatus'); }
+    function SelectPageShow(pageid){ page = pageid; SearchNews(); }
+    function GetPageCount(){ SearchNews(); }
+    function CheckStatus(type, id){ AjaxData('/admin/news/list/status/' + type + '/' + id, {}, 'UpdateStatus'); }
     function UpdateStatus(rs){
-        
+
     }
 </script>
-
 @endsection

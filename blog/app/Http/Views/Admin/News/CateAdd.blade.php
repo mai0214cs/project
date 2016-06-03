@@ -1,10 +1,10 @@
 @extends('Admin.layout')
 @section('header')
-{{trans('admin.PageAddCategoryProduct')}}
+{{trans('admin.PageAddCategoryNews')}}
 @endsection
 @section('content')
 <div class="col-lg-12">
-    <h1 class="page-header">{{trans('admin.PageAddCategoryProduct')}}</h1>
+    <h1 class="page-header">{{trans('admin.PageAddCategoryNews')}}</h1>
 </div>
 <div class="clearfix"></div>
 @if(count($errors->all())>0)
@@ -14,7 +14,7 @@
 @endif
 <!-- /.col-lg-12 -->
 <div style="padding-bottom:120px">
-    <form action="{{route('admin.product.category.store')}}" method="POST" class="form-horizontal" role="form">
+    <form action="{{route('admin.news.category.store')}}" method="POST" class="form-horizontal" role="form">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="col-sm-6">
             <div class="panel panel-default">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.catestatus')}}</label>
+                        <label class="control-label col-sm-3">{{trans('news.catestatus')}}</label>
                         <div class="col-sm-9">
                             <label class="radio-inline">
                                 <input name="status" value="Yes" {{old('status')=='Yes'||old('status')==NULL?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
@@ -90,7 +90,7 @@
         </div>
         <div class="clearfix"></div>
         <button type="submit" class="btn btn-default"><?= trans('admin.buttonAdd') ?></button>
-        <a href="{{route('admin.product.category.index')}}" class="btn btn-default"><?= trans('admin.buttonReset') ?></a>
+        <a href="{{route('admin.news.category.index')}}" class="btn btn-default"><?= trans('admin.buttonReset') ?></a>
         <form>
             </div>
             @endsection
