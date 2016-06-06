@@ -30,7 +30,6 @@
                 <th>{{trans('admin.price')}}</th>
                 <th>{{trans('admin.pricepromotion')}}</th>
                 <th>{{trans('admin.parent')}}</th>
-                <th>{{trans('admin.parent')}}</th>
                 <th>{{trans('admin.alias')}}</th>
                 <th>{{trans('admin.new')}}</th>
                 <th>{{trans('admin.sales')}}</th>
@@ -42,25 +41,24 @@
         </thead>
         <tbody>
             @foreach($list as $item)
-        <template id="TempGridData"><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></template>
-        <tr>
-            <td></td>
-            <td>{{$item->title}}</td>
-            <td><img src="{{imageReset($item->avatar)}}" alt="{{$item->name}}" class="imageAvatar" /></td>
-            <td>{{$item->price_sales}}</td>
-            <td>{{isset($cate[$item->id_page])?$cate[$item->id_page]:''}}</td>
-            <td>{{$item->alias}}</td>
-            <td><input type="checkbox" onclick="CheckStatus(0, {{$item['id']}})" {{$item['new']=='Y'?'checked="checked"':''}}  /></td>
-            <td><input type="checkbox" onclick="CheckStatus(1, {{$item['id']}})" {{$item['hot']=='Y'?'checked="checked"':''}}  /></td>
-            <td><input type="checkbox" onclick="CheckStatus(2, {{$item['id']}})" {{$item['feature']=='Y'?'checked="checked"':''}} /></td>
-            <td>{{$item['viewcount']}}</td>
-            <td><input type="checkbox" onclick="CheckStatus(3, {{$item['id']}})" {{$item['status']=='Y'?'checked="checked"':''}} /></td>
-            <td>
-                <a class="label label-primary" href="{{route('admin.product.list.edit',$item['id'])}}"><?= trans('admin.buttonEdit') ?></a>
-                <a class="label label-danger" href="/admin/product/list/delete/{{$item['id']}}"><?= trans('admin.buttonDelete') ?></a>
-            </td>
-        </tr>
-        @endforeach
+            <tr>
+                <td></td>
+                <td>{{$item->title}}</td>
+                <td><img src="{{imageReset($item->avatar)}}" alt="{{$item->name}}" class="imageAvatar" /></td>
+                <td>{{$item->getProducts()->price_sale}}</td>
+                <td>{{$item->getProducts()->price_promotion}}</td>
+                <td>{{$item->getPage()->title}}</td>
+                <td>{{$item->alias}}</td>
+                <td><input type="checkbox" onclick="CheckStatus(0, {{$item->id}})" {{$item->new=='Yes'?'checked="checked"':''}}  /></td>
+                <td><input type="checkbox" onclick="CheckStatus(1, {{$item->id}})" {{$item->getProducts()->seller=='Yes'?'checked="checked"':''}}  /></td>
+                <td><input type="checkbox" onclick="CheckStatus(2, {{$item->id}})" {{$item->feature=='Yes'?'checked="checked"':''}} /></td>
+                <td><input type="checkbox" onclick="CheckStatus(3, {{$item->id}})" {{$item->status=='Yes'?'checked="checked"':''}} /></td>
+                <td>
+                    <a class="label label-primary" href="{{route('admin.product.list.edit',$item->id)}}"><?= trans('admin.buttonEdit') ?></a>
+                    <a class="label label-danger" href="/admin/product/list/delete/{{$item->id}}"><?= trans('admin.buttonDelete') ?></a>
+                </td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
@@ -207,7 +205,7 @@
     function GetPageCount(){ SearchProduct(); }
     function CheckStatus(type, id){ AjaxData('/admin/product/list/status/' + type + '/' + id, {}, 'UpdateStatus'); }
     function UpdateStatus(rs){
-        
+
     }
 </script>
 
