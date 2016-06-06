@@ -180,5 +180,13 @@ class NewsListController extends Controller {
             return redirect()->route('admin.news.list.index')->with(information('danger', 'admin.deleteListNewsError'));
         }
     }
+    public function deleteAll(){
+        $input = Input::all(); $count = 0;
+        foreach ($input['deleteAll'] as $item) {
+            if(PageModel::where(['type'=>'news_list','id'=>$item])->get()->count()==0){continue;}
+            if(PageModel::find($item)->delete()){$count++;}
+        }
+        echo $count;
+    }
 
 }

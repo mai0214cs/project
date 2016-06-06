@@ -6,7 +6,9 @@
 <div class="col-lg-12">
     <h1 class="page-header">{{trans('admin.NewsList')}}</h1>
     <div id="Pagination">
-        &nbsp;&nbsp;&nbsp;<a type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">{!!trans('admin.buttonSearch')!!}</a>
+        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">{!!trans('admin.buttonSearch')!!}</a>&nbsp;&nbsp;&nbsp;
+        <a type="button" class="btn btn-danger" onclick="XoaCheckAll('/admin/news/list/deleteall', '{{trans('admin.deleteNewsAll')}}')">{!!trans('admin.buttonDeleteAll')!!}</a>
+
         <div id="ListPage" style="float: right;">{!!$listpage!!}</div>
     </div>
 </div>
@@ -21,6 +23,7 @@
     <table class="table table-hover table-striped" id="GridData">
         <thead>
             <tr>
+                <th><input type="checkbox" onclick="togglecheckboxes(this)"></th>
                 <th>{{trans('admin.name')}}</th>
                 <th>{{trans('admin.avatar')}}</th>
                 <th>{{trans('admin.parent')}}</th>
@@ -32,22 +35,23 @@
             </tr>
         </thead>
         <tbody>
-           
-        @foreach($list as $item)
-        <tr>
-            <td>{{$item->title}}</td>
-            <td><img src="{{imageReset($item->avatar)}}" alt="{{$item->name}}" class="imageAvatar" /></td>
-            <td>{{isset($listcate[$item->id_page])?$listcate[$item->id_page]:''}}</td>
-            <td>{{$item['alias']}}</td>
-            <td><input type="checkbox" onclick="CheckStatus(0, {{$item->id}})" {{$item->new=='Yes'?'checked="checked"':''}}  /></td>
-            <td><input type="checkbox" onclick="CheckStatus(1, {{$item->id}})" {{$item->feature=='Yes'?'checked="checked"':''}} /></td>
-            <td><input type="checkbox" onclick="CheckStatus(2, {{$item->id}})" {{$item->status=='Yes'?'checked="checked"':''}} /></td>
-            <td>
-                <a class="label label-primary" href="{{route('admin.news.list.edit',$item->id)}}"><?= trans('admin.buttonEdit') ?></a>&nbsp;
-                <a class="label label-danger" href="/admin/news/list/delete/{{$item->id}}" onclick="return confirm('{{trans('admin.deleteListNewsConfirm')}}');"><?= trans('admin.buttonDelete') ?></a>
-            </td>
-        </tr>
-        @endforeach
+
+            @foreach($list as $item)
+            <tr>
+                <td><input type="checkbox" class="CheckAll" rel="{{$item->id}}"></td>
+                <td>{{$item->title}}</td>
+                <td><img src="{{imageReset($item->avatar)}}" alt="{{$item->name}}" class="imageAvatar" /></td>
+                <td>{{isset($listcate[$item->id_page])?$listcate[$item->id_page]:''}}</td>
+                <td>{{$item['alias']}}</td>
+                <td><input type="checkbox" onclick="CheckStatus(0, {{$item->id}})" {{$item->new=='Yes'?'checked="checked"':''}}  /></td>
+                <td><input type="checkbox" onclick="CheckStatus(1, {{$item->id}})" {{$item->feature=='Yes'?'checked="checked"':''}} /></td>
+                <td><input type="checkbox" onclick="CheckStatus(2, {{$item->id}})" {{$item->status=='Yes'?'checked="checked"':''}} /></td>
+                <td>
+                    <a class="label label-primary" href="{{route('admin.news.list.edit',$item->id)}}"><?= trans('admin.buttonEdit') ?></a>&nbsp;
+                    <a class="label label-danger" href="/admin/news/list/delete/{{$item->id}}" onclick="return confirm('{{trans('admin.deleteListNewsConfirm')}}');"><?= trans('admin.buttonDelete') ?></a>
+                </td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
 </div>
@@ -121,11 +125,8 @@
 @endsection
 @section('footer')
 <style>
-    ul.pagination {
-        margin: 0px;
-    }
     .imageAvatar{width:100px;}
-
+    div#Pagination {text-align: right;}
 </style>
 <script>
     function CheckStatus(type, id){ AjaxData('/admin/news/list/status/' + type + '/' + id, {}, 'ResultUpdate'); }

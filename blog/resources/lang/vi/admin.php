@@ -53,6 +53,7 @@ return [
     'noselect'          => 'Không lựa chọn',
     'buttonSearch'      => '<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Tìm kiếm',
     'buttonClose'       => '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Đóng',
+    'buttonDeleteAll'      => '<span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Xoát tất cả',
     
     'errorRequest'      => 'Yêu cầu không tồn tại',
     
@@ -112,7 +113,8 @@ return [
     'deleteListNewsError'    => 'Xóa danh sách tin tức thất bại',
     'updateDataSuccess'  => 'Cập nhật dữ liệu thành công',
     'updateDataError'    => 'Cập nhật dữ liệu thất bại',
-    'deleteListNewsConfirm'  => 'Xác nhận xóa tin tức',
+    'deleteListNewsConfirm' => 'Xác nhận xóa tin tức',
+    'deleteNewsAll'         => 'Xác nhận xóa tất cả tin tức đã chọn',
     
     'searchnews'                => 'Tìm kiếm tin tức',
     'searchproduct'             => 'Tìm kiếm sản phẩm',
