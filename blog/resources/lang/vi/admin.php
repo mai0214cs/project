@@ -30,7 +30,8 @@ return [
     'PageEditCategoryProduct'   => 'Sửa danh mục sản phẩm',
     'PageAddCategoryNews'       => 'Thêm danh mục tin tức',
     'PageEditCategoryNews'      => 'Sửa danh mục tin tức',
-    
+    'PageAddListNews'           => 'Thêm danh sách tin tức',
+    'PageEditListNews'          => 'Sửa danh sách tin tức',
     
     
     
@@ -50,9 +51,13 @@ return [
     'infocommon'        => 'Thông tin chung',
     'infoseo'           => 'Thông tin SEO',
     'noselect'          => 'Không lựa chọn',
+    'buttonSearch'      => '<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Tìm kiếm',
+    'buttonClose'       => '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Đóng',
     
+    'errorRequest'      => 'Yêu cầu không tồn tại',
     
     'name'              => 'Tiêu đề',
+    'description'       => 'Mô tả',
     'status'            => 'Trạng thái',
     'alias'             =>'Alias',
     'action'            =>'Thao tác',
@@ -62,8 +67,10 @@ return [
     'SEO_keyword'       => 'SEO Từ khóa',
     'avatar'            => 'Ảnh đại diện',
     'parent'            => 'Danh mục cha',
+    'key'               => 'Từ khóa',
     'order'             => 'Thứ tự',
-    
+    'date_update'       => 'Ngày cập nhật',
+    'detail'            => 'Chi tiết',
     'price'             => 'Giá bán',
     'pricepromotion'    => 'Giá khuyến mại',
     'status_inventory'  => 'Kho hàng',
@@ -95,5 +102,19 @@ return [
     'statusCategoryNewsSuccess'  => 'Cập nhật trạng thái danh mục tin tức thành công',
     'statusCategoryNewsError'    => 'Cập nhật trạng thái danh mục tin tức thất bại',
     'convertCategoryNews'        => 'Chuyển tin tức sang danh mục khác',
+    
+    'noexistsListNews'       => 'Tin tức không tồn tại',
+    'addListNewsSuccess'     => 'Thêm danh sách tin tức thành công',
+    'addListNewsError'       => 'Thêm danh sách tin tức thất bại',
+    'editListNewsSuccess'    => 'Sửa danh sách tin tức thành công',
+    'editListNewsError'      => 'Sửa danh sách tin tức thất bại',
+    'deleteListNewsSuccess'  => 'Xóa danh sách tin tức thành công',
+    'deleteListNewsError'    => 'Xóa danh sách tin tức thất bại',
+    'updateDataSuccess'  => 'Cập nhật dữ liệu thành công',
+    'updateDataError'    => 'Cập nhật dữ liệu thất bại',
+    'deleteListNewsConfirm'  => 'Xác nhận xóa tin tức',
+    
+    'searchnews'                => 'Tìm kiếm tin tức',
+    'searchproduct'             => 'Tìm kiếm sản phẩm',
     
 ];

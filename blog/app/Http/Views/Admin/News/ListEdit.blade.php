@@ -1,16 +1,10 @@
 @extends('Admin.layout')
 @section('header')
-{{trans('news.listedit')}}
+{{trans('admin.PageEditListNews')}}
 @endsection
 @section('content')
-<link href="/src/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
-<script src="/src/fancybox/jquery.fancybox.js" type="text/javascript"></script>
-<script src="/src/fancybox/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script>
-<script src="/src/ckeditor/ckeditor.js" type="text/javascript"></script>
-<script src="/src/ckfinder/ckfinder.js" type="text/javascript"></script>
-
 <div class="col-lg-12">
-    <h1 class="page-header">{{trans('news.listedit')}}</h1>
+    <h1 class="page-header">{{trans('admin.PageEditListNews')}}</h1>
 </div>
 <div class="clearfix"></div>
 @if(count($errors->all())>0)
@@ -27,19 +21,19 @@
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Thông tin chung</h3>
+                    <h3 class="panel-title">{{trans('admin.infocommon')}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('news.listname')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtName" value="{{$item['name']}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.name')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="title" value="{{$item['title']}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('news.listparent')}}</label>
+                        <label class="control-label col-sm-3">{{trans('admin.parent')}}</label>
                         <div class="col-sm-9">
-                            <select class="form-control" name="selectParent">
-                                @foreach($category as $cate)
-                                <option {{$item['category_id']==$cate['id']?'selected="selected"':''}} value="{{$cate['id']}}">{{$cate['name']}}</option>
+                            <select class="form-control" name="id_page">
+                                @foreach($cate as $itemcate)
+                                <option {{$item['id_page']==$itemcate['id']?'selected="selected"':''}} value="{{$itemcate['id']}}">{{$itemcate['title']}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -47,14 +41,14 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">{{trans('news.listavatar')}}</label>
                         <div class="col-sm-9">
-                            <div class="imagetxtAvatar"><img style="width:140px;" src="{{imageReset($item['avatar'])}}" alt="Hình ảnh" /></div>
-                            <input type="hidden" class="form-control" name="txtAvatar" value="{{imageReset($item['avatar'])}}" />
-                            <input onclick="selectFileWithCKFinder('txtAvatar')" type="button" value="Chọn hình ảnh">
+                            <div class="imageavatar"><img style="width:140px;" src="{{imageReset($item['avatar'])}}" alt="{{$item['title']}}" /></div>
+                            <input type="hidden" class="form-control" name="avatar" value="{{imageReset($item['avatar'])}}" />
+                            <input onclick="selectFileWithCKFinder('avatar')" type="button" value="Chọn hình ảnh">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('news.listdescription')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtDescription" value="{{$item['description']}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.description')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="description" value="{{$item['description']}}" /></div>
                     </div>
                 </div>
             </div>
@@ -62,75 +56,65 @@
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Thông tin SEO</h3>
+                    <h3 class="panel-title">{{trans('admin.infoseo')}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('news.listorder')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtOrder" value="{{$item['orderby']}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.order')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="orderby" value="{{$item['orderby']}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('news.listseotitle')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtSEOTitle" value="{{$item['seotitle']}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.SEO_title')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="SEO_title" value="{{$item['SEO_title']}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('news.listseokeyword')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtSEOKeyword" value="{{$item['seokeywords']}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.SEO_keyword')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="SEO_keyword" value="{{$item['SEO_keyword']}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('news.listseodescription')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtSEODescription" value="{{$item['seodescription']}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.SEO_description')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="SEO_description" value="{{$item['SEO_description']}}" /></div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">{{trans('admin.alias')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtAlias" value="{{$item['alias']}}" /></div>
+                        <div class="col-sm-9"><input class="form-control" name="alias" value="{{$item['alias']}}" /></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('news.liststatus')}}</label>
+                                <label class="control-label col-sm-6">{{trans('admin.status')}}</label>
                                 <div class="col-sm-6">
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="Y" {{$item['status']=='Y'?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
+                                    <input name="status" value="Yes" {{$item['status']=='Y'?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoStatus" value="N" {{$item['status']=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
-                                </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('news.listnew')}}</label>
-                                <div class="col-sm-6">
-                                <label class="radio-inline">
-                                    <input name="rdonew" value="Y" {{$item['new']=='Y'?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="rdonew" value="N" {{$item['new']=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                    <input name="status" value="Nu" {{$item['status']=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
                                 </label>
                                 </div>
                             </div>
                         </div>
+                        <div class="clearfix"></div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('news.listhot')}}</label>
+                                <label class="control-label col-sm-6">{{trans('admin.new')}}</label>
                                 <div class="col-sm-6">
                                 <label class="radio-inline">
-                                    <input name="rdohot" value="Y" {{$item['hot']=='Y'?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
+                                    <input name="new" value="Yes" {{$item['new']=='Yes'?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdohot" value="N" {{$item['hot']=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                    <input name="new" value="No" {{$item['new']=='No'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
                                 </label>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('news.listfeature')}}</label>
+                                <label class="control-label col-sm-6">{{trans('admin.feature')}}</label>
                                 <div class="col-sm-6">
                                 <label class="radio-inline">
-                                    <input name="rdofeature" value="Y" {{$item['feature']=='Y'?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
+                                    <input name="feature" value="Yes" {{$item['feature']=='Yes'?'checked="checked"':''}} type="radio">{{trans('admin.show')}}
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdofeature" value="N" {{$item['feature']=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                    <input name="feature" value="No" {{$item['feature']=='No'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
                                 </label>
                                 </div>
                             </div>
@@ -144,8 +128,8 @@
 
         <div class="col-sm-12">
             <div class="form-group">
-                <label>{{trans('news.listdetail')}}</label>
-                <textarea name="txtDetail" id="txtDetail"><?= $item['detail'] ?></textarea>
+                <label>{{trans('admin.detail')}}</label>
+                <textarea name="detail" id="txtDetail"><?= $item['detail'] ?></textarea>
                 <script>CKEDITOR.replace('txtDetail');</script>
             </div>
         </div>

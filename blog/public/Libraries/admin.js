@@ -47,3 +47,11 @@ Date.prototype.formatDate = function(){
     day = n.getDay()>10?n.getDay():'0'+n.getDay(), month = n.getMonth()>10?n.getMonth():'0'+n.getMonth(), year = n.getFullYear();
     return day+'/'+month+'/'+year;
 }
+
+
+
+$('#InfoUpdate').show().delay(1000).slideUp(500);
+function ResultUpdate(rs){
+    $('#InfoUpdate').html('<div class="row"><div class="alert alert-'+rs.status+'">'+rs.message+'</div></div>');
+    $('#InfoUpdate').show().delay(1000).slideUp(500);
+}

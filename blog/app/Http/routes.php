@@ -4,7 +4,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/', 'AdminController@index');
     Route::group(['prefix' => 'news'], function() {
         Route::resource('category', 'News\NewsCategoryController');
+        Route::get('category/status/{id}','News\NewsCategoryController@status');
+        Route::get('category/delete/{id}/{idnew}','News\NewsCategoryController@delete');
         Route::resource('list', 'News\NewsListController');
+        Route::get('list/status/{type}/{id}','News\NewsListController@status');
+        Route::get('list/delete/{id}','News\NewsListController@delete');
+        
     });
     Route::group(['prefix' => 'product'], function() {
         Route::resource('category', 'Product\ProductCategoryController', ['only' => ['index', 'create', 'store', 'edit', 'update']]);

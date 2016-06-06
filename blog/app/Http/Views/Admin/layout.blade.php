@@ -95,12 +95,13 @@
             </nav>
             <div id="page-wrapper">
                 <div class="container-fluid">
+                    <div id="InfoUpdate">
                     @if(Session::has('infomation'))
                     <div class="row">
                         <div class="alert alert-{{Session::get('status')}}">{{Session::get('infomation')}}</div>
                     </div>    
                     @endif
-
+                    </div>
                     <div class="row">
                         @yield('content')
                     </div>
