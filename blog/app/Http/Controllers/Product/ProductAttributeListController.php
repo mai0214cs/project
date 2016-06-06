@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Models\Group_attributesModel;
 
-class ProductAttributeController extends Controller
+class ProductAttributeListController extends Controller
 {
     /* Display a listing of the resource. */
     public function index(){

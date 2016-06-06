@@ -19,7 +19,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::get('list/delete/{id}','ProductListController@delete');
         Route::get('list/status/{type}/{id}','ProductListController@status');
         Route::resource('list', 'Product\ProductListController');
-        Route::resource('attribute', 'Product\ProductAttributeController');
+        Route::resource('attributelist', 'Product\ProductAttributeListController');
+        Route::resource('attributegroup', 'Product\ProductAttributeGroupController');
+        
+        
+        
     });
     Route::group(['prefix' => 'order'], function() {
         Route::resource('customer', 'Order\CustomerController');

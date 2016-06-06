@@ -13,7 +13,7 @@ class Group_attributesRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class Group_attributesRequest extends Request
     public function rules()
     {
         return [
-            //
+            'status'=>'required|in:Show,Hide',
+            'type'=>'required|in:select,checkbox,radio,color,location,text',
+            'order'=>'required|integer',
+            'name'=>'required'
         ];
     }
 }

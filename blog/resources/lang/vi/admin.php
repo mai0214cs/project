@@ -9,7 +9,8 @@ return [
     'Product'           => 'Sản phẩm',
     'ProductList'       => 'Danh sách Sản phẩm',
     'ProductCategory'   => 'Danh mục Sản phẩm',
-    'ProductAttribute'  => 'Thuộc tính Sản phẩm',
+    'ProductAttributeGroup'     => 'Nhóm thuộc tính Sản phẩm',
+    'ProductAttributeList'      => 'Chi tiết thuộc tính Sản phẩm',
     'News'              => 'Tin tức',
     'NewsList'          => 'Danh sách Tin tức',
     'NewsCategory'      => 'Danh mục Tin tức',
@@ -25,13 +26,24 @@ return [
     'UserSettings'      => 'Cập nhật Tài khoản',
     'Logout'            => 'Đăng xuất',
     
+    
+    
+    
+    
+    
+    
     // List Page Item
     'PageAddCategoryProduct'    => 'Thêm danh mục sản phẩm',
     'PageEditCategoryProduct'   => 'Sửa danh mục sản phẩm',
+    
     'PageAddCategoryNews'       => 'Thêm danh mục tin tức',
     'PageEditCategoryNews'      => 'Sửa danh mục tin tức',
+    
     'PageAddListNews'           => 'Thêm danh sách tin tức',
     'PageEditListNews'          => 'Sửa danh sách tin tức',
+    
+    'PageAddAttributeGroup'     => 'Thêm nhóm thuộc tính sản phẩm',
+    'PageEditAttributeGroup'    => 'Sửa nhóm thuộc tính sản phẩm',
     
     
     
@@ -40,6 +52,7 @@ return [
     
     'show'              =>'Hiện',
     'hide'              =>'Ẩn',
+    'type'              =>'Kiểu',
     'yes'               =>'Có',
     'no'                =>'Không',
     'buttonAdd'         =>'<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Thêm',
@@ -111,12 +124,29 @@ return [
     'editListNewsError'      => 'Sửa danh sách tin tức thất bại',
     'deleteListNewsSuccess'  => 'Xóa danh sách tin tức thành công',
     'deleteListNewsError'    => 'Xóa danh sách tin tức thất bại',
-    'updateDataSuccess'  => 'Cập nhật dữ liệu thành công',
-    'updateDataError'    => 'Cập nhật dữ liệu thất bại',
     'deleteListNewsConfirm' => 'Xác nhận xóa tin tức',
     'deleteNewsAll'         => 'Xác nhận xóa tất cả tin tức đã chọn',
     
-    'searchnews'                => 'Tìm kiếm tin tức',
-    'searchproduct'             => 'Tìm kiếm sản phẩm',
+    'searchnews'            => 'Tìm kiếm tin tức',
+    'searchproduct'         => 'Tìm kiếm sản phẩm',
+    'updateDataSuccess'     => 'Cập nhật dữ liệu thành công',
+    'updateDataError'       => 'Cập nhật dữ liệu thất bại',
+    
+    
+    
+    'noexistsAttrGroupProduct'       => 'Danh mục thuộc tính không tồn tại',
+    'addAttrGroupProductSuccess'     => 'Thêm danh mục thuộc tính thành công',
+    'addAttrGroupProductError'       => 'Thêm danh mục thuộc tính thất bại',
+    'editAttrGroupProductSuccess'    => 'Sửa danh mục thuộc tính thành công',
+    'editAttrGroupProductError'      => 'Sửa danh mục thuộc tính thất bại',
+    'deleteAttrGroupProductSuccess'  => 'Xóa danh mục thuộc tính thành công',
+    'deleteAttrGroupProductError'    => 'Xóa danh mục thuộc tính thất bại',
+    'deleteAttrGroupProductConfirm'  => 'Xác nhận xóa danh mục thuộc tính',
+    'statusAttrGroupProductSuccess'  => 'Cập nhật trạng thái danh mục thuộc tính thành công',
+    'statusAttrGroupProductError'    => 'Cập nhật trạng thái danh mục thuộc tính thất bại',
+    
+    
+    
+    
     
 ];

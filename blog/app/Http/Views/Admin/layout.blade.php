@@ -68,7 +68,7 @@
                                 <ul class="nav nav-second-level">
                                     <li><a href="{{route('admin.product.list.index')}}">{{trans('admin.ProductList')}}</a></li>
                                     <li><a href="{{route('admin.product.category.index')}}">{{trans('admin.ProductCategory')}}</a></li>
-                                    <li><a href="{{route('admin.product.attribute.index')}}">{{trans('admin.ProductAttribute')}}</a></li>
+                                    <li><a href="{{route('admin.product.attributegroup.index')}}">{{trans('admin.ProductAttributeGroup')}}</a></li>
                                 </ul>
                             </li>
                             <li>
