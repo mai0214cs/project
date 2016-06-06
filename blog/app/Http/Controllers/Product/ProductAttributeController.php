@@ -9,23 +9,9 @@ use App\Http\Models\Group_attributesModel;
 
 class ProductAttributeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+    /* Display a listing of the resource. */
+    public function index(){
         
-        
-        
-        
-        
-        
-        
-        
-        $data['cate'] = Group_attributesModel::orderBy('id','asc')->get();
-        //return view('');
     }
 
     /**

@@ -90,9 +90,9 @@ class ProductCategoryController extends Controller
             if ($category->update($input)) {
                 return redirect()->route('admin.product.category.index')->with(information('success', 'admin.editCategoryProductSuccess'));
             }
-            return redirect()->route('admin.product.category.create')->with(information('danger', 'admin.editCategoryProductError'));
+            return redirect()->route('admin.product.category.edit',$id)->with(information('danger', 'admin.editCategoryProductError'));
         } else {
-            return redirect()->route('admin.product.category.create')->with(information('danger', 'admin.editCategoryProductError'));
+            return redirect()->route('admin.product.category.edit',$id)->with(information('danger', 'admin.editCategoryProductError'));
         }
     }
     

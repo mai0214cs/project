@@ -89,9 +89,9 @@ class NewsCategoryController extends Controller
             if ($category->update($input)) {
                 return redirect()->route('admin.news.category.index')->with(information('success', 'admin.editCategoryNewsSuccess'));
             }
-            return redirect()->route('admin.news.category.create')->with(information('danger', 'admin.editCategoryNewsError'));
+            return redirect()->route('admin.news.category.edit',$id)->with(information('danger', 'admin.editCategoryNewsError'));
         } else {
-            return redirect()->route('admin.news.category.create')->with(information('danger', 'admin.editCategoryNewsError'));
+            return redirect()->route('admin.news.category.edit',$id)->with(information('danger', 'admin.editCategoryNewsError'));
         }
     }
     
