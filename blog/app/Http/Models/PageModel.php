@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class PageModel extends Model
 {
     protected $table = 'page';
-    public function getPage(){
-        return $this->hasOne(getModel('page'), 'id_page');
+    public function page(){
+        return $this->belongsTo(getModel('page'), 'id_page');
     }
-    public function getProducts(){
+    public function products(){
         return $this->hasOne(getModel('products'), 'id_page');
     }
 }

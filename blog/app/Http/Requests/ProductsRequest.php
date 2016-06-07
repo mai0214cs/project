@@ -6,25 +6,21 @@ use App\Http\Requests\Request;
 
 class ProductsRequest extends Request
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            //
+            'price_import'      => 'required|integer',
+            'price_sale'        => 'required|integer',
+            'price_promotion'   => 'required|integer',
+            'included_VAT'      => 'required|in:Yes,No',
+            'quantity'          => 'required|integer',
+            'manager_inventory' => 'required|in:Yes,No',
+            'seller'            => 'required|in:Yes,No'
         ];
     }
 }

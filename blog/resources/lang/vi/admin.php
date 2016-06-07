@@ -36,11 +36,14 @@ return [
     'PageAddCategoryProduct'    => 'Thêm danh mục sản phẩm',
     'PageEditCategoryProduct'   => 'Sửa danh mục sản phẩm',
     
+    'PageAddListProduct'           => 'Thêm sản phẩm',
+    'PageEditListProduct'          => 'Sửa sản phẩm',
+    
     'PageAddCategoryNews'       => 'Thêm danh mục tin tức',
     'PageEditCategoryNews'      => 'Sửa danh mục tin tức',
     
-    'PageAddListNews'           => 'Thêm danh sách tin tức',
-    'PageEditListNews'          => 'Sửa danh sách tin tức',
+    'PageAddListNews'           => 'Thêm tin tức',
+    'PageEditListNews'          => 'Sửa tin tức',
     
     'PageAddAttributeGroup'     => 'Thêm nhóm thuộc tính sản phẩm',
     'PageEditAttributeGroup'    => 'Sửa nhóm thuộc tính sản phẩm',
@@ -63,6 +66,7 @@ return [
     'buttonImage'       => '<span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Chọn hình ảnh',
     'infocommon'        => 'Thông tin chung',
     'infoseo'           => 'Thông tin SEO',
+    'infoproduct'       => 'Thông tin sản phẩm',
     'noselect'          => 'Không lựa chọn',
     'buttonSearch'      => '<span class="glyphicon glyphicon-search" aria-hidden="true"></span> Tìm kiếm',
     'buttonClose'       => '<span class="glyphicon glyphicon-off" aria-hidden="true"></span> Đóng',
@@ -85,13 +89,20 @@ return [
     'order'             => 'Thứ tự',
     'date_update'       => 'Ngày cập nhật',
     'detail'            => 'Chi tiết',
+    'price_import'      => 'Giá nhập',
     'price'             => 'Giá bán',
     'pricepromotion'    => 'Giá khuyến mại',
+    'included_VAT'      => 'Bao gồm VAT',
     'status_inventory'  => 'Kho hàng',
     'new'               => 'Mới',
     'feature'           => 'Nổi bật',
-    'sales'             =>'Bán chạy',
+    'sales'             => 'Bán chạy',
+    'promotion'         => 'Bán chạy',
+    'quantity'          => 'Số lượng',
+    'manager_inventory' => 'Quản lý kho hàng',
     
+    
+    'code_product'      => 'Mã sản phẩm',
     
     
     
@@ -105,6 +116,18 @@ return [
     'statusCategoryProductSuccess'  => 'Cập nhật trạng thái danh mục sản phẩm thành công',
     'statusCategoryProductError'    => 'Cập nhật trạng thái danh mục sản phẩm thất bại',
     'convertCategoryProduct'        => 'Chuyển sản phẩm sang danh mục khác',
+    
+    'noexistsListProduct'       => 'Sản phẩm không tồn tại',
+    'addListProductSuccess'     => 'Thêm sản phẩm thành công',
+    'addListProductError'       => 'Thêm sản phẩm thất bại',
+    'editListProductSuccess'    => 'Sửa sản phẩm thành công',
+    'editListProductError'      => 'Sửa sản phẩm thất bại',
+    'deleteListProductSuccess'  => 'Xóa sản phẩm thành công',
+    'deleteListProductError'    => 'Xóa sản phẩm thất bại',
+    'deleteListProductConfirm'  => 'Xác nhận xóa sản phẩm',
+    'deleteProductAll'          => 'Xác nhận xóa tất cả sản phẩm đã chọn',
+    
+    
     
     'noexistsCategoryNews'       => 'Danh mục tin tức không tồn tại',
     'addCategoryNewsSuccess'     => 'Thêm danh mục tin tức thành công',

@@ -1,12 +1,12 @@
 @extends('Admin.layout')
 @section('header')
-{{trans('product.listadd')}}
+{{trans('admin.PageAddListProduct')}}
 @endsection
 @section('content')
 
 
 <div class="col-lg-12">
-    <h1 class="page-header">{{trans('product.listadd')}}</h1>
+    <h1 class="page-header">{{trans('admin.PageAddListProduct')}}</h1>
 </div>
 <div class="clearfix"></div>
 @if(count($errors->all())>0)
@@ -21,156 +21,167 @@
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Thông tin chung</h3>
+                    <h3 class="panel-title">{{trans('admin.infocommon')}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listname')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtName" value="{{old('txtName')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.name')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="title" value="{{old('title')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listparent')}}</label>
+                        <label class="control-label col-sm-3">{{trans('admin.parent')}}</label>
                         <div class="col-sm-9">
-                            <select class="form-control" name="selectParent">
-                                @foreach($category as $item)
-                                <option {{old('selectParent')==$item['id']?'selected="selected"':''}} value="{{$item['id']}}">{{$item['name']}}</option>
+                            <select class="form-control" name="id_page">
+                                @foreach($cate as $item)
+                                <option {{old('id_page')==$item['id']?'selected="selected"':''}} value="{{$item['id']}}">{{$item['title']}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listavatar')}}</label>
+                        <label class="control-label col-sm-3">{{trans('admin.avatar')}}</label>
                         <div class="col-sm-9">
-                            <div class="imagetxtAvatar"><img style="width:100px;" src="/image.png" alt="Hình ảnh" /></div>
-                            <input type="hidden" class="form-control" name="txtAvatar" value="{{old('txtAvatar')}}" />
-                            <input onclick="selectFileWithCKFinder('txtAvatar')" type="button" value="Chọn hình ảnh">
+                            <div class="imageavatar"><img style="width:100px;" src="{{imageReset(old('avatar'))}}" alt="{{$item['title']}}" /></div>
+                            <input type="hidden" class="form-control" name="avatar" value="{{imageReset(old('avatar'))}}" />
+                            <button onclick="selectFileWithCKFinder('avatar')" type="button">{!!trans('admin.buttonImage')!!}</button>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listdescription')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtDescription" value="{{old('txtDescription')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.description')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="description" value="{{old('description')}}" /></div>
                     </div> 
                 </div>
             </div>
             <div class="col-sm-12">
             <div class="form-group">
-                <label>{{trans('product.listdetail')}}</label>
-                <textarea name="txtDetail" id="txtDetail"><?= old('txtDetail') ?></textarea>
-                <script>CKEDITOR.replace('txtDetail');</script>
+                <label>{{trans('admin.detail')}}</label>
+                <textarea name="detail" id="detail"><?= old('detail') ?></textarea>
+                <script>CKEDITOR.replace('detail');</script>
             </div>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Thông tin chung</h3>
+                    <h3 class="panel-title">{{trans('admin.infoproduct')}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listcode')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtCode" value="{{old('txtCode')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.code_product')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="code" value="{{old('code')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listprice')}}</label>
-                        <div class="col-sm-9"><input class="form-control" type="number" name="txtPrice" value="{{old('txtPrice')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.price_import')}}</label>
+                        <div class="col-sm-9"><input class="form-control" type="number" name="price_import" value="{{old('price_import')==''?0:old('price_import')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listpromotionprice')}}</label>
-                        <div class="col-sm-9"><input class="form-control" type="number" name="txtPromotionPrice" value="{{old('txtPromotionPrice')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.price')}}</label>
+                        <div class="col-sm-9"><input class="form-control" type="number" name="price_sale" value="{{old('price_sale')==''?0:old('price_sale')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listvat')}}</label>
+                        <label class="control-label col-sm-3">{{trans('admin.pricepromotion')}}</label>
+                        <div class="col-sm-9"><input class="form-control" type="number" name="price_promotion" value="{{old('price_promotion')==''?0:old('price_promotion')}}" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">{{trans('admin.included_VAT')}}</label>
                         <div class="col-sm-9">
                             <label class="radio-inline">
-                                <input name="rdovat" value="Y" {{old('rdovat')=='Y'?'':'checked="checked"'}} type="radio">{{trans('admin.show')}}
+                                <input name="included_VAT" value="Yes" {{in_array(old('included_VAT'),['Yes',''])?'checked="checked"':''}} type="radio">{{trans('admin.yes')}}
                             </label>
                             <label class="radio-inline">
-                                <input name="rdovat" value="N" {{old('rdovat')=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                <input name="included_VAT" value="No" {{old('included_VAT')=='No'?'checked="checked"':''}} type="radio">{{trans('admin.no')}}
                             </label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listquantity')}}</label>
-                        <div class="col-sm-9"><input class="form-control" type="number" name="txtQuantity" min='0' value="{{old('txtQuantity')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.quantity')}}</label>
+                        <div class="col-sm-9"><input class="form-control" type="number" name="quantity" min='0' value="{{old('quantity')==''?1000:old('quantity')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listwarranty')}}</label>
-                        <div class="col-sm-9"><input class="form-control" type="number" name="txtWarranty" min='0' max='100' value="{{old('txtWarranty')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.manager_inventory')}}</label>
+                        <div class="col-sm-9">
+                            <label class="radio-inline">
+                                <input name="manager_inventory" value="Yes" {{in_array(old('manager_inventory'),['Yes',''])?'checked="checked"':''}} type="radio">{{trans('admin.yes')}}
+                            </label>
+                            <label class="radio-inline">
+                                <input name="manager_inventory" value="No" {{old('manager_inventory')=='No'?'checked="checked"':''}} type="radio">{{trans('admin.no')}}
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Thông tin SEO</h3>
+                    <h3 class="panel-title">{{trans('admin.infoseo')}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listorder')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtOrder" value="{{old('txtOrder')==''?999:old('txtOrder')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.order')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="orderBy" value="{{old('orderBy')==''?999:old('orderBy')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listseotitle')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtSEOTitle" value="{{old('txtSEOTitle')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.SEO_title')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="SEO_title" value="{{old('SEO_title')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listseokeyword')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtSEOKeyword" value="{{old('txtSEOKeyword')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.SEO_keyword')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="SEO_keyword" value="{{old('SEO_keyword')}}" /></div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-sm-3">{{trans('product.listseodescription')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtSEODescription" value="{{old('txtSEODescription')}}" /></div>
+                        <label class="control-label col-sm-3">{{trans('admin.SEO_description')}}</label>
+                        <div class="col-sm-9"><input class="form-control" name="SEO_description" value="{{old('SEO_description')}}" /></div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">{{trans('admin.alias')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="txtAlias" value="{{old('txtAlias')}}" /></div>
+                        <div class="col-sm-9"><input class="form-control" name="alias" value="{{old('alias')}}" /></div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('product.liststatus')}}</label>
+                                <label class="control-label col-sm-6">{{trans('admin.status')}}</label>
                                 <div class="col-sm-6">
                                     <label class="radio-inline">
-                                        <input name="rdoStatus" value="Y" {{old('rdoStatus')=='Y'?'':'checked="checked"'}} type="radio">{{trans('admin.show')}}
+                                        <input name="status" value="Yes" {{in_array(old('status'),['Yes',''])?'checked="checked"':''}} type="radio">{{trans('admin.yes')}}
                                     </label>
                                     <label class="radio-inline">
-                                        <input name="rdoStatus" value="N" {{old('rdoStatus')=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                        <input name="status" value="No" {{old('status')=='No'?'checked="checked"':''}} type="radio">{{trans('admin.no')}}
                                     </label>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('product.listnew')}}</label>
+                                <label class="control-label col-sm-6">{{trans('admin.new')}}</label>
                                 <div class="col-sm-6">
                                     <label class="radio-inline">
-                                        <input name="rdonew" value="Y" {{old('rdonew')=='Y'?'':'checked="checked"'}} type="radio">{{trans('admin.show')}}
+                                        <input name="new" value="Yes" {{in_array(old('new'),['Yes',''])?'checked="checked"':''}} type="radio">{{trans('admin.yes')}}
                                     </label>
                                     <label class="radio-inline">
-                                        <input name="rdonew" value="N" {{old('rdonew')=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                        <input name="new" value="No" {{old('new')=='No'?'checked="checked"':''}} type="radio">{{trans('admin.no')}}
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('product.listhot')}}</label>
+                                <label class="control-label col-sm-6">{{trans('admin.sales')}}</label>
                                 <div class="col-sm-6">
                                     <label class="radio-inline">
-                                        <input name="rdohot" value="Y" {{old('rdohot')=='Y'?'':'checked="checked"'}} type="radio">{{trans('admin.show')}}
+                                        <input name="seller" value="Yes" {{in_array(old('seller'),['Yes',''])?'checked="checked"':''}} type="radio">{{trans('admin.yes')}}
                                     </label>
                                     <label class="radio-inline">
-                                        <input name="rdohot" value="N" {{old('rdohot')=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                        <input name="seller" value="No" {{old('seller')=='No'?'checked="checked"':''}} type="radio">{{trans('admin.no')}}
                                     </label>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-sm-6">{{trans('product.listfeature')}}</label>
+                                <label class="control-label col-sm-6">{{trans('admin.feature')}}</label>
                                 <div class="col-sm-6">
                                     <label class="radio-inline">
-                                        <input name="rdofeature" value="Y" {{old('rdofeature')=='Y'?'':'checked="checked"'}} type="radio">{{trans('admin.show')}}
+                                        <input name="feature" value="Yes" {{in_array(old('feature'),['Yes',''])?'checked="checked"':''}} type="radio">{{trans('admin.yes')}}
                                     </label>
                                     <label class="radio-inline">
-                                        <input name="rdofeature" value="N" {{old('rdofeature')=='N'?'checked="checked"':''}} type="radio">{{trans('admin.hide')}}
+                                        <input name="feature" value="No" {{old('feature')=='No'?'checked="checked"':''}} type="radio">{{trans('admin.no')}}
                                     </label>
                                 </div>
                             </div>
@@ -184,16 +195,6 @@
         </div>
 
 <div class="clearfix"></div>
-
-
-
-
-
-
-
-
-
-
         <button type="submit" class="btn btn-default"><?= trans('admin.buttonAdd') ?></button>
         <a href="{{route('admin.product.list.index')}}" class="btn btn-default"><?= trans('admin.buttonReset') ?></a>
         <form>

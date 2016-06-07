@@ -17,8 +17,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
         Route::get('category/delete/{id}/{idnew}','Product\ProductCategoryController@delete');
         Route::get('search','ProductListController@search');
         Route::get('list/delete/{id}','ProductListController@delete');
-        Route::get('list/status/{type}/{id}','ProductListController@status');
+        
         Route::resource('list', 'Product\ProductListController');
+        Route::get('list/status/{type}/{id}','Product\ProductListController@status');
+        
         Route::resource('attributelist', 'Product\ProductAttributeListController');
         Route::resource('attributegroup', 'Product\ProductAttributeGroupController');
         
