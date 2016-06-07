@@ -25,7 +25,9 @@
         "files": [
             "App/Http/Helper/common.php",
             "App/Http/Helper/function.php",
-            "App/Http/Libraries/LoadMenu.php"
+            "App/Http/Libraries/LoadMenu.php",
+            "App/Http/Libraries/ConvertData.php"
+            
         ]
     },
     "autoload-dev": {
