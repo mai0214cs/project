@@ -35,40 +35,64 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 
 
-Route::get('/', function () {
-
-    $xml = new App\Http\Libraries\ConvertData();
-    $xml->data = array(
-        array(
-            "id" => 1,
-            "name" => "Nitya",
-            "address" => array(
-                "country" => "India",
-                "city" => "Kolkata",
-                "zip" => 700102,
-            )
-        ),
-        array(
-            "id" => 2,
-            "name" => "John",
-            "address" => array(
-                "country" => "<string>Myx</string>",
-                "city" => "Newyork",
-                "zip" => "NY1234",
-            )
-        ),
-        array(
-            "id" => 3,
-            "name" => "Viktor",
-            "address" => array(
-                "country" => "Australia",
-                "city" => "Sydney",
-                "zip" => 123456,
-            )
-        ),
-    );
-    $xml->status = 200;
-    return $xml->EXCEL();
+Route::get('/', function () {?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Video YOUTUBE Latest</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://freetuts.net/public/javascript/jquery.min.js" ></script>
+        <script language="javascript">
+            $(document).ready(function()
+            {
+                var chanel_id = 'UCg9QhTft6SFstWk67JlJiEA';
+                var api_key  = 'AIzaSyBdJxvaeQKFaQoqcc36mJmqTv_J_BMCMFE';
+                 
+                // Get Youtube Video Upload ID
+                $.get("https://www.googleapis.com/youtube/v3/channels", {
+                        part : "contentDetails",
+                        id : chanel_id,
+                        key : api_key
+                    },
+                    function(data)
+                    {
+                        $.each(data.items, function(i, item)
+                        {
+                            // Upload ID
+                            var id = item.contentDetails.relatedPlaylists.uploads;
+ 
+                            $.get("https://www.googleapis.com/youtube/v3/playlistItems", {
+                                    part : "snippet",
+                                    maxResults : "50",
+                                    playlistId  : id,
+                                    key : api_key
+                                },
+                                function(result){
+                                    var output = '';
+                                    $.each(result.items, function(i, result_item){
+                                        output += '<div>';
+                                            var title = result_item.snippet.title;
+                                            var href = result_item.snippet.resourceId.videoId;
+                                            var img = result_item.snippet.thumbnails.default.url;
+                                            output += '<img src="'+img+'" />';
+                                            output += '<div><a href="https://www.youtube.com/watch?v='+href+'" title="'+title+'">'+title+'</a></div>';
+                                        output +='</div>';
+                                    });
+                                    // Gán danh sách video vào body
+                                    $('body').html(output);
+                                }
+                            );
+                        });
+                    }
+                );
+            });
+        </script>
+    </head>
+    <body>
+         
+    </body>
+</html><?php
 });
 
 Route::auth();
