@@ -24,7 +24,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="control-label col-sm-3">{{trans('admin.name')}}</label>
-                        <div class="col-sm-9"><input class="form-control" name="title" value="{{old('title')}}" /></div>
+                        <div class="col-sm-9"><input type="text" class="form-control" name="title" value="{{old('title')}}" /></div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3">{{trans('admin.parent')}}</label>

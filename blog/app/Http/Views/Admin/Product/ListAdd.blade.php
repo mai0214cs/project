@@ -195,7 +195,7 @@
         </div>
 
 <div class="clearfix"></div>
-        <button type="submit" class="btn btn-default"><?= trans('admin.buttonAdd') ?></button>
+<button type="submit" value="Add" class="btn btn-default"><?= trans('admin.buttonAdd') ?></button>
         <a href="{{route('admin.product.list.index')}}" class="btn btn-default"><?= trans('admin.buttonReset') ?></a>
         <form>
             </div>
